@@ -1,70 +1,109 @@
-<img height="100" alt="hyperexecute_logo" src="https://user-images.githubusercontent.com/1688653/159473714-384e60ba-d830-435e-a33f-730df3c3ebc6.png">
+# Run JMeter Tests with HyperExecute on TestMu AI (Formerly LambdaTest)
 
-HyperExecute is a next-gen test execution platform by LambdaTest, designed to supercharge your test runs with unparalleled speed, scalability, and smart test management. Whether you're running cross-browser tests or executing your CI/CD pipeline, HyperExecute ensures efficiency and speed in the cloud.
+<p align="center">
+  <a href="https://www.testmuai.com/"><img src="https://img.shields.io/badge/MADE%20BY%20TestMu%20AI-000000.svg?style=for-the-badge&labelColor=000" alt="Made by TestMu AI"></a>
+  <a href="https://github.com/apache/jmeter"><img src="https://img.shields.io/github/v/release/apache/jmeter.svg?style=for-the-badge&labelColor=000000" alt="JMeter version"></a>
+  <a href="https://community.testmuai.com/"><img src="https://img.shields.io/badge/Join%20the%20community-blueviolet.svg?style=for-the-badge&labelColor=000000" alt="Community"></a>
+</p>
 
-HyperExecute is configured using a YAML file. Instead of moving the Hub close to you, HyperExecute brings the test scripts close to the Hub!
+## Getting Started
 
-- [HyperExecute HomePage](https://www.lambdatest.com/hyperexecute)
-- [Lambdatest HomePage](https://www.lambdatest.com)
-- [HyperExecute JMeter Documentation](https://www.lambdatest.com/support/docs/hyperexecute-run-jmeter-tests/)
-- [LambdaTest Support](mailto:support@lambdatest.com)
-<br />
+[TestMu AI](https://www.testmuai.com/) (Formerly LambdaTest) is the world's first full-stack AI Agentic Quality Engineering platform that empowers teams to test intelligently, smarter, and ship faster. Built for scale, it offers a full-stack testing cloud with 10K+ real devices and 3,000+ browsers. With AI-native test management, MCP servers, and agent-based automation, TestMu AI supports Selenium, Appium, Playwright, and all major frameworks. 
 
-## 📖 Table of Contents
-1. [Steps to run your test](#-steps-to-run-your-test) <br />
-    1.1 [Setup your JMeter Project](#-setup-your-jmeter-project) <br />
-    1.2 [Trigger your `.jmx` file](#-setup-your-jmeter-project)
-4. [Repository Structure](#-repository-structure)
-6. [Documentation & Resources](#-documentation--resources)
-7. [Contributing](#-contributing)
-8. [Contact & Support](#-contact--support)
+With TestMu AI (Formerly LambdaTest), you can run JMeter performance tests using HyperExecute. This sample shows how to configure JMeter + HyperExecute to run on the TestMu AI cloud.
 
-## 🚀 Steps to run your test
-> Before proceeding forward, make sure you have created your account on [LambdaTest](https://accounts.lambdatest.com/login)
+- [Sign up on TestMu AI](https://www.testmuai.com/register/) (Formerly LambdaTest).
+- Follow the [TestMu AI Documentation](https://www.testmuai.com/support/docs/) for the full setup walkthrough.
 
-Follow the steps below to get started with running Selenium TestNG tests on HyperExecute!
-<br />
+### Prerequisites
 
-### Setup your JMeter Project
-- Go to the [HyperExecute Project's Dashboard](https://hyperexecute.lambdatest.com/hyperexecute/projects) and click on the **New Project** button.
-- Select **JMeter** as your **Type of Project**.
-- Provide your project name.
-- Browse and Upload the test plans that you have created (Optional).
-- Click on the Save button.
+- A [TestMu AI](https://www.testmuai.com/) account with HyperExecute access
+- [HyperExecute CLI](https://www.testmuai.com/support/docs/hyperexecute-cli-run-tests-on-hyperexecute-grid/) binary for your OS
+- JMeter test plan (`.jmx` file)
 
-### Trigger your `.jmx` file
-- Upload your `.jmx` files if you haven't in the previous step.
-- Now select all the `.jmx` files that you want to trigger and click on **Run** button.
-- Define the `Total Users`, `Duration (min)`, and `Ramp-up Time (min)` and click on **Continue**.
-- Select the regions in which you want to trigger your test, and define the traffic percentage.
-- Click on the **Run Test** button.
+### Setup
 
-## 🔍 Monitoring & Debugging
-You can monitor your test execution in real-time using the [HyperExecute Dashboard](https://hyperexecute.lambdatest.com/hyperexecute).
+Clone and install dependencies:
 
-<img src='image/output.png' alt="Image" />
+```bash
+git clone https://github.com/LambdaTest/hyperexecute-jmeter-sample && cd hyperexecute-jmeter-sample
+```
 
-## 📚 Documentation & Resources
-For more details on how to run and customize tests with HyperExecute, check out:
+Set your credentials as environment variables.
 
-- [HyperExecute Documentation](https://www.lambdatest.com/support/docs/getting-started-with-hyperexecute/)
-- [HyperExcute API Documentation](https://www.lambdatest.com/support/api-doc/?key=hyperexecute)
-- [HyperExecute Case Study Blogs](https://www.lambdatest.com/blog/category/hyperexecute/)
+**macOS / Linux:**
 
-## 🤝 Contributing
-We welcome contributions to improve this repository. Here's how you can contribute:
+```bash
+export LT_USERNAME="YOUR_USERNAME"
+export LT_ACCESS_KEY="YOUR_ACCESS_KEY"
+export LT_TUNNEL="YOUR_TUNNEL_NAME"
+```
 
-- Fork this repository.
-- Create a new branch -> `git checkout -b YOUR_NAME/FIX_NAME`.
-- Make your changes and commit them -> `git commit -m 'YOUR_COMMIT_MESSAGE'`.
-- Push the branch to your fork -> `git push origin YOUR_NAME/FIX_NAME`.
-- Open a Pull Request to the main repository.
+**Windows:**
 
-## 📞 Contact & Support
-Need help or have questions? Reach out to us:
+```bash
+set LT_USERNAME="YOUR_USERNAME"
+set LT_ACCESS_KEY="YOUR_ACCESS_KEY"
+set LT_TUNNEL="YOUR_TUNNEL_NAME"
+```
 
-- Email: support@lambdatest.com
-- Visit our [Community Forum](https://community.lambdatest.com/)
+### Run tests
 
+Upload your `.jmx` files via [HyperExecute Dashboard](https://hyperexecute.lambdatest.com/hyperexecute/projects), select JMeter as project type, then click Run.
 
-Thank you for using HyperExecute! 🚀 Happy Testing!
+View results on your TestMu AI dashboard.
+
+### Local testing with TestMu AI Tunnel
+
+To test locally hosted apps, set up the TestMu AI tunnel. OS-specific guides:
+
+- [Local Testing on Windows](https://www.testmuai.com/support/docs/local-testing-for-windows/)
+- [Local Testing on macOS](https://www.testmuai.com/support/docs/local-testing-for-macos/)
+- [Local Testing on Linux](https://www.testmuai.com/support/docs/local-testing-for-linux/)
+
+Add the following to your capabilities:
+
+```js
+tunnel: true,
+```
+
+## Contributions
+
+Contributions are welcome. Open an issue to discuss your idea before submitting a pull request. When reporting bugs, include your JMeter version, OS, and HyperExecute CLI version.
+
+## TestMu AI (Formerly LambdaTest) Community
+
+Connect with testers and developers in the [TestMu AI Community](https://community.testmuai.com/). Ask questions, share what you are building, and discuss best practices in test automation and DevOps.
+  
+## TestMu AI (Formerly LambdaTest) Certifications
+
+Earn free [TestMu AI Certifications](https://www.testmuai.com/certifications/) for testers, developers, and QA engineers. Validate your skills in Selenium, Cypress, Playwright, Appium, Espresso and more. Industry-recognized, shareable on LinkedIn, and built by practitioners, not marketers.
+
+## Learning Resources by TestMu AI (Formerly LambdaTest)
+
+Learn modern testing through tutorials, guides, videos, and weekly updates:
+
+* [TestMu AI Blog](https://www.testmuai.com/blog/) - Tutorials, deep dives, and framework guides for testers and developers.
+* [TestMu AI Learning Hub](https://www.testmuai.com/learning-hub/) - Long-form learning paths on Selenium, Cypress, Playwright, Appium, and AI-native testing.
+* [TestMu AI Newsletter](https://www.testmuai.com/newsletter/) - Weekly roundup of what's new in testing, dev tools, and AI.
+* [TestMu AI on YouTube](https://www.youtube.com/@TestMuAI) - Walkthroughs, product demos, and talks from TestMu Conference.
+  
+## LambdaTest is Now TestMu AI
+
+On **January 12, 2026**, [LambdaTest evolved to TestMu AI](https://www.testmuai.com/lambdatest-is-now-testmuai/), the world's first fully autonomous **Agentic AI Quality Engineering Platform**.
+
+Same team. Same infrastructure. Same customer accounts. All existing LambdaTest logins, scripts, capabilities, and integrations continue to work without change.
+
+👉 Find the new home for [LambdaTest](https://www.testmuai.com).
+
+### How LambdaTest Evolved into TestMu AI
+
+In 2017, we launched LambdaTest with a simple mission: make testing fast, reliable, and accessible. As LambdaTest grew, we expanded into Test Intelligence, Visual Regression Testing, Accessibility Testing, API Testing, and Performance Testing, covering the full depth of the testing lifecycle.
+
+As software development entered the AI era, testing had to evolve, too. We rebuilt the architecture to be AI-native from the ground up, with autonomous agents that **plan, author, execute, analyze, and optimize tests** while keeping humans in the loop. The platform integrates with your repos, CI, IDEs, and terminals, continuously learning from every code change and development signal.
+
+That evolution earned a new name: **TestMu AI**, built for an AI-first future of quality engineering. TestMu is not a new name for us. It is the name of our annual community conference, which has brought together 100,000+ quality engineers to discuss how AI would reshape testing, long before that became an industry norm. TestMu AI reflects our commitment to community-driven innovation and AI-native architecture.
+
+## Support
+
+Got a question? Email [support@testmuai.com](mailto:support@testmuai.com) or chat with us 24x7 from our chat portal.
